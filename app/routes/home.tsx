@@ -15,7 +15,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+const Home = () => {
   const { auth } = usePuterStore();
   const navigate = useNavigate();
 
@@ -44,4 +44,5 @@ export default function Home() {
       </section>
     </main>
   );
-}
+};
+export default Home;
