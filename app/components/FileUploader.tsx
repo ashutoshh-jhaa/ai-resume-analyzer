@@ -54,7 +54,6 @@ const FileUploader = ({ file, onFileSelect }: FileUploaderProps) => {
                 className="p-2 cursor-pointer"
                 onClick={(e) => {
                   onFileSelect?.(null);
-                  setFile(null);
                 }}
               >
                 <img src="/icons/cross.svg" alt="remove" className="w-4 h-4" />
