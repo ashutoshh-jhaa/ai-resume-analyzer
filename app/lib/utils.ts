@@ -13,3 +13,6 @@ export const formatSize = (bytes: number): string => {
 
   return `${size.toFixed(2)} ${sizes[i]}`;
 };
+
+//generateUUID
+export const generateUUID = (): string => crypto.randomUUID();
