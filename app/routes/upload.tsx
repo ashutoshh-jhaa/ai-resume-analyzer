@@ -82,6 +82,7 @@ const Upload = () => {
     };
 
     try {
+      //store the resume id and data in puter as key value
       await kv.set(`resume:${uuid}`, JSON.stringify(data));
     } catch (error) {
       console.log(error);
@@ -105,7 +106,9 @@ const Upload = () => {
     data.feedback = JSON.parse(feedbackText);
     await kv.set(`resume${uuid}`, JSON.stringify(data));
     setStatusText("Analysis complete, redirecting...");
-    console.log(data);
+
+    // rediret to /resume page
+    navigate(`/resume/${uuid}`);
   };
 
   return (
