@@ -19,10 +19,9 @@ const Resume = () => {
   const { auth, isLoading, fs, kv } = usePuterStore();
   const { id } = useParams();
 
-  //handle auth
+  // handle auth
   useEffect(() => {
-    if (!isLoading && !auth.isAuthenticated)
-      navigate(`/auth/next?=resume${id}`);
+    if (!isLoading && !auth.isAuthenticated) navigate(`/auth?next=/upload`);
   }, [isLoading]);
 
   //extract resume details
@@ -37,17 +36,7 @@ const Resume = () => {
         if (!resume) return;
 
         const data = JSON.parse(resume);
-
-        // Parse feedback safely
-        let parsedFeedback = null;
-        if (data.feedback && data.feedback.trim() !== "") {
-          try {
-            parsedFeedback = JSON.parse(data.feedback);
-          } catch {
-            parsedFeedback = data.feedback;
-          }
-        }
-        setFeedback(parsedFeedback);
+        setFeedback(data.feedback);
 
         // Get resume PDF Blob
         const resumeBlobData = await fs.read(data.resumePath);

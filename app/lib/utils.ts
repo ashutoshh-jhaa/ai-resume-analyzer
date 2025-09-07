@@ -1,3 +1,11 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+//for class concatenation
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
+};
+
 //utility function to format size in different formats
 export const formatSize = (bytes: number): string => {
   if (bytes === 0) return "0 Bytes";
